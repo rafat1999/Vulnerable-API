@@ -13,11 +13,23 @@ users = db.users
 def home():
     return render_template("index.html")
 
-# NoSQL Injection
+# NoSQL Injection (Vulnerable)
 @app.route("/nosql", methods=["POST"])
 def nosql_injection():
     username = request.form.get("username")
     password = request.form.get("password")
+    user = users.find_one({"username": username, "password": password})
+    if user:
+        return "Login successful!"
+    return "Login failed."
+
+# NoSQL Injection (Secure Fix)
+@app.route("/nosql_secure", methods=["POST"])
+def nosql_secure():
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if not isinstance(username, str) or not isinstance(password, str):
+        return "Invalid input."
     user = users.find_one({"username": username, "password": password})
     if user:
         return "Login successful!"
