@@ -13,8 +13,8 @@ This project is a **deliberately vulnerable API** designed for students to learn
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/vulnerable-api.git
-cd vulnerable-api
+git clone https://github.com/rafat1999/Vulnerable-API.git
+cd Vulnerable-API
 ```
 
 ### 2. Install Dependencies
