@@ -1,38 +1,50 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Vulnerable API Test</title>
+</head>
 <body>
     <h1>Vulnerable API - Test Page</h1>
+
+    <h3>NoSQL Injection Test</h3>
     <form action="/nosql" method="POST">
-        <h3>NoSQL Injection</h3>
         Username: <input type="text" name="username"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" value="Login">
     </form>
 
+    <h3>NoSQL Injection (Secure) Test</h3>
+    <form action="/nosql_secure" method="POST">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Login Secure">
+    </form>
+
+    <h3>IDOR Test</h3>
     <form action="/idor" method="GET">
-        <h3>IDOR</h3>
         User ID: <input type="text" name="user_id"><br>
         <input type="submit" value="Fetch Data">
     </form>
 
+    <h3>XSS Test</h3>
     <form action="/xss" method="POST">
-        <h3>XSS</h3>
         Comment: <input type="text" name="comment"><br>
         <input type="submit" value="Submit">
     </form>
 
+    <h3>CSRF Test</h3>
     <form action="/csrf" method="POST">
-        <h3>CSRF</h3>
         <input type="submit" value="Transfer Money">
     </form>
 
+    <h3>Code Injection Test</h3>
     <form action="/code_injection" method="POST">
-        <h3>Code Injection</h3>
         Command: <input type="text" name="command"><br>
         <input type="submit" value="Execute">
     </form>
 
+    <h3>Server-Side Template Injection (SSTI) Test</h3>
     <form action="/ssti" method="POST">
-        <h3>Server-Side Template Injection (SSTI)</h3>
         Template: <input type="text" name="template"><br>
         <input type="submit" value="Render">
     </form>
